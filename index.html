@@ -21,6 +21,37 @@ color:#fff;
 scroll-behavior:smooth;
 }
 
+/* ANIMACIÓN DE ENTRADA */
+
+#intro{
+position:fixed;
+width:100%;
+height:100vh;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 2.5s ease forwards;
+animation-delay:2.5s;
+}
+
+#intro h1{
+color:#f5b041;
+font-size:3rem;
+animation:zoomIn 2s ease;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(0.5); opacity:0;}
+100%{transform:scale(1); opacity:1;}
+}
+
+@keyframes fadeOut{
+to{opacity:0; visibility:hidden;}
+}
+
 /* MENU */
 
 nav{
@@ -44,10 +75,10 @@ nav a:hover{
 color:#f5b041;
 }
 
-/* INICIO */
+/* HEADER */
 
 header{
-background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
 url('https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg');
 background-size:cover;
 background-position:center;
@@ -63,30 +94,13 @@ padding:30px;
 header h1{
 font-size:3rem;
 color:#f5b041;
-font-weight:800;
-margin-bottom:15px;
+margin-bottom:20px;
+animation:slideDown 1.5s ease;
 }
 
-.mensaje-principal{
-max-width:850px;
-font-size:1.15rem;
-line-height:1.6;
-}
-
-.destacado{
-color:#f5b041;
-font-weight:600;
-margin-top:15px;
-}
-
-.beneficios{
-margin-top:20px;
-text-align:left;
-max-width:600px;
-}
-
-.beneficios p{
-margin:8px 0;
+@keyframes slideDown{
+0%{transform:translateY(-50px); opacity:0;}
+100%{transform:translateY(0); opacity:1;}
 }
 
 .botones{
@@ -123,24 +137,31 @@ background:#1ebe5d;
 /* SECCIONES */
 
 section{
-padding:80px 20px;
+padding:100px 20px;
 text-align:center;
 max-width:1100px;
 margin:auto;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 section h2{
 font-size:2rem;
-margin-bottom:20px;
+margin-bottom:30px;
 color:#f5b041;
 }
 
 .cards{
 display:flex;
 flex-wrap:wrap;
-gap:20px;
+gap:25px;
 justify-content:center;
-margin-top:30px;
 }
 
 .card{
@@ -152,24 +173,22 @@ transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 background:#222;
 }
 
 .card img{
 width:100%;
-border-radius:10px;
-margin-top:10px;
+max-height:220px;
+object-fit:contain;
+margin-top:15px;
 }
 
-iframe{
+.album img{
 width:100%;
-height:315px;
 border-radius:15px;
-margin-top:20px;
+margin-bottom:15px;
 }
-
-/* FOOTER */
 
 footer{
 background:#000;
@@ -178,186 +197,137 @@ text-align:center;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<div id="intro">
+<h1>LA ESCUELA DE LA SALSA BY RB</h1>
+<p style="color:white;">Dilo con la Salsa</p>
+</div>
+
 <nav>
-
-<a href="#inicio">Inicio</a>
 <a href="#instrumentos">Instrumentos</a>
-<a href="#orquesta">Orquesta</a>
-<a href="#estudio">Estudio</a>
+<a href="#orquesta">Rolos Band</a>
 <a href="#contacto">Contacto</a>
-
 </nav>
 
-<header id="inicio">
-
-<h1>LA ESCUELA DE LA SALSA BY RB</h1>
-
-<div class="mensaje-principal">
-
-<p class="destacado">
-¿ESTRÉS, DEPRESIÓN O ANSIEDAD?
-</p>
-
-<p class="destacado">
-🥁 DILO CON LA SALSA Y LA PERCUSIÓN 🥁
-</p>
-
-<p>
-En La Escuela de la Salsa Rolos Band, ubicados en Ciudad Verde, no solo enseñamos a tocar; construimos bienestar.
-</p>
-
-<p>
-¿Sabías que tocar percusión reduce el cortisol (hormona del estrés) y libera endorfinas?
-</p>
-
-<div class="beneficios">
-
-<p>✅ Para niños: Mejora la atención y la disciplina.</p>
-
-<p>✅ Para adultos: El mejor escape después de un día pesado.</p>
-
-<p>✅ Para abuelos: Ejercicio vital para la memoria y la coordinación.</p>
-
-</div>
-
-<p class="destacado">
-No necesitas instrumento propio. Solo las ganas de conectar con tu ritmo.
-</p>
-
-</div>
+<header>
+<h1>Bienestar, Música y Salsa en Ciudad Verde</h1>
 
 <div class="botones">
-
-<a href="#instrumentos" class="btn">
-Ver los instrumentos que puedes aprender
+<a href="#instrumentos" class="btn">Ver Instrumentos</a>
+<a href="https://wa.me/573133231571?text=Quiero%20mi%20programar%20una%20clase%20de%20cortes%C3%ADa" class="btn btn-wsp">
+Clase de Cortesía
 </a>
-
-<a href="https://wa.me/573133231571?text=Quiero%20mi%20programar%20una%20clase%20de%20cortes%C3%ADa"
-class="btn btn-wsp">
-Info y Clase de Cortesía
-</a>
-
 </div>
-
 </header>
 
 <section id="instrumentos">
-
-<h2>Estos son los instrumentos que puedes aprender con nosotros</h2>
+<h2>Instrumentos que puedes aprender</h2>
 
 <div class="cards">
 
-<div class="card">
-Timbal
-<img src="https://images.pexels.com/photos/87657/pexels-photo-87657.jpeg">
+<div class="card">Conga
+<img src="https://i.imgur.com/A1hudUr.png">
 </div>
 
-<div class="card">
-Congas
-<img src="https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg">
+<div class="card">Timbal
+<img src="https://i.imgur.com/DZvISKt.png">
 </div>
 
-<div class="card">
-Bongó
-<img src="https://images.pexels.com/photos/164983/pexels-photo-164983.jpeg">
+<div class="card">Campana
+<img src="https://i.imgur.com/gF5dsiC.png">
 </div>
 
-<div class="card">
-Campana
-<img src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg">
+<div class="card">Cantante
+<img src="https://i.imgur.com/rnzW4Mf.png">
 </div>
 
-<div class="card">
-Piano
-<img src="https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg">
+<div class="card">Bongocero
+<img src="https://i.imgur.com/vQsN57C.png">
 </div>
 
-<div class="card">
-Canto
-<img src="https://images.pexels.com/photos/164890/pexels-photo-164890.jpeg">
+<div class="card">Piano
+<img src="https://i.imgur.com/HSbkySh.png">
 </div>
 
-<div class="card">
-Arreglos Musicales
-<img src="https://images.pexels.com/photos/164941/pexels-photo-164941.jpeg">
+<div class="card">Arreglos Musicales
+<img src="https://i.imgur.com/EAY0Gfu.png">
 </div>
 
 </div>
-
 </section>
 
 <section id="orquesta">
+<h2>Rolos Band — Producciones Discográficas</h2>
 
-<h2>Rolos Band — Orquesta Profesional</h2>
+<div class="cards">
 
-<p>
-Nuestros estudiantes tienen la oportunidad de vivir la experiencia real con músicos profesionales en vivo.
-</p>
+<div class="card album">
+<img src="https://i.imgur.com/BVaVjy7.png">
+<h3>2017 - No Fue Fácil</h3>
+<a href="https://www.youtube.com/watch?v=Ue6y88VZGOA&list=PL7YH1mbo4O_patibVK_9TZRgY2WTph8Ch" target="_blank" class="btn">
+Escuchar Álbum
+</a>
+</div>
 
-<iframe src="https://www.youtube.com/embed/7ybvRwyTvYY" allowfullscreen></iframe>
+<div class="card album">
+<img src="https://i.imgur.com/7M61tai.png">
+<h3>2024 - Solo Contigo</h3>
+<a href="https://www.youtube.com/watch?v=Tb-xK4QsSAk&list=PL7YH1mbo4O_rzDG01sSVVA1D5YM2y2u8_" target="_blank" class="btn">
+Escuchar Álbum
+</a>
+</div>
 
-<p style="margin-top:20px;">
-Álbumes grabados:
-</p>
+<div class="card album">
+<img src="https://i.imgur.com/iafsW8o.png">
+<h3>2025 - Rolomántico en Big Band</h3>
+<a href="https://www.youtube.com/watch?v=CR8ZbY6FQVM&list=PL7YH1mbo4O_ru5JkWuOk_LOQfkxvLDHXm" target="_blank" class="btn">
+Escuchar Álbum
+</a>
+</div>
 
-<p>
-• Producción Discográfica 1<br>
-• Producción Discográfica 2<br>
-• Producción Discográfica 3
-</p>
+<div class="card album">
+<img src="https://i.imgur.com/9PS1jq2.png">
+<h3>Acompañamientos</h3>
+<a href="https://drive.google.com/file/d/14TV3JUHQ6ildBLrJe275VXv4hUgpZmbz/view?usp=sharing" target="_blank" class="btn">
+Ver Material
+</a>
+</div>
 
-</section>
-
-<section id="estudio">
-
-<h2>ME Records Colombia — Estudio de Grabación</h2>
-
-<p>
-Producción profesional en géneros como salsa, vallenato, merengue, reguetón, ranchera y música popular.
-</p>
-
-<p>
-Artistas emergentes y profesionales han grabado sus proyectos en nuestras instalaciones.
-</p>
-
+</div>
 </section>
 
 <section id="contacto">
-
 <h2>Contacto</h2>
-
-<p>
-Formarte con nosotros alegra tus días y transforma tu vida a través de la música.
-</p>
-
-<p>
-📧 laescueladelasalsabyrb@gmail.com
-</p>
-
-<p>
-📧 larolosband@gmail.com
-</p>
-
-<p>
-📱 +57 313 3231571
-</p>
-
-<p>
-📍 Sede Ciudad Verde, Soacha, Cundinamarca, Colombia
-</p>
-
+<p>📱 313 3231571</p>
+<p>📍 Ciudad Verde, Soacha</p>
+<p>📧 laescueladelasalsabyrb@gmail.com</p>
 </section>
 
 <footer>
-
-© 2026 La Escuela de la Salsa by RB — Todos los derechos reservados
-
+© 2026 La Escuela de la Salsa by RB
 </footer>
+
+<script>
+
+/* Animación al hacer scroll */
+
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+sections.forEach(section => {
+const position = section.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.3;
+
+if(position < screenPosition){
+section.classList.add("visible");
+}
+});
+});
+
+</script>
 
 </body>
 </html>
