@@ -7,107 +7,356 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#111;color:#fff;scroll-behavior:smooth;}
-nav{position:fixed;top:0;width:100%;background:#000;padding:15px;z-index:1000;text-align:center;}
-nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:500;}
-nav a:hover{color:#f5b041;}
-header{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg');
-background-size:cover;background-position:center;
-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
-header h1{font-size:3rem;color:#f5b041;font-weight:800;}
-header p{font-size:1.2rem;max-width:800px;margin-top:15px;}
-.btn{margin-top:25px;padding:12px 30px;background:#f5b041;color:#000;text-decoration:none;font-weight:600;border-radius:30px;transition:0.3s;}
-.btn:hover{background:#fff;}
-section{padding:80px 20px;text-align:center;max-width:1000px;margin:auto;}
-section h2{font-size:2rem;margin-bottom:20px;color:#f5b041;}
-.cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
-.card{background:#1c1c1c;padding:25px;border-radius:15px;flex:1 1 280px;transition:0.3s;}
-.card:hover{transform:translateY(-5px);background:#222;}
-footer{background:#000;padding:40px 20px;text-align:center;font-size:0.9rem;}
-iframe{border-radius:15px;width:100%;height:315px;margin-top:20px;}
+
+body{
+background:#111;
+color:#fff;
+scroll-behavior:smooth;
+}
+
+/* MENU */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#000;
+padding:15px;
+z-index:1000;
+text-align:center;
+}
+
+nav a{
+color:#fff;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{
+color:#f5b041;
+}
+
+/* INICIO */
+
+header{
+background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+url('https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg');
+background-size:cover;
+background-position:center;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+}
+
+header h1{
+font-size:3rem;
+color:#f5b041;
+font-weight:800;
+margin-bottom:15px;
+}
+
+.mensaje-principal{
+max-width:850px;
+font-size:1.15rem;
+line-height:1.6;
+}
+
+.destacado{
+color:#f5b041;
+font-weight:600;
+margin-top:15px;
+}
+
+.beneficios{
+margin-top:20px;
+text-align:left;
+max-width:600px;
+}
+
+.beneficios p{
+margin:8px 0;
+}
+
+.botones{
+margin-top:30px;
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+}
+
+.btn{
+padding:14px 28px;
+background:#f5b041;
+color:#000;
+text-decoration:none;
+font-weight:600;
+border-radius:30px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#fff;
+}
+
+.btn-wsp{
+background:#25d366;
+color:#fff;
+}
+
+.btn-wsp:hover{
+background:#1ebe5d;
+}
+
+/* SECCIONES */
+
+section{
+padding:80px 20px;
+text-align:center;
+max-width:1100px;
+margin:auto;
+}
+
+section h2{
+font-size:2rem;
+margin-bottom:20px;
+color:#f5b041;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+}
+
+.card{
+background:#1c1c1c;
+padding:20px;
+border-radius:15px;
+flex:1 1 250px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:#222;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+margin-top:10px;
+}
+
+iframe{
+width:100%;
+height:315px;
+border-radius:15px;
+margin-top:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <nav>
+
 <a href="#inicio">Inicio</a>
-<a href="#academia">Academia</a>
 <a href="#instrumentos">Instrumentos</a>
 <a href="#orquesta">Orquesta</a>
 <a href="#estudio">Estudio</a>
-<a href="#mao">Mao</a>
 <a href="#contacto">Contacto</a>
+
 </nav>
 
 <header id="inicio">
+
 <h1>LA ESCUELA DE LA SALSA BY RB</h1>
-<p>Donde la música y el movimiento cuidan tu mente, tu corazón y tu bienestar. Aprende con profesionales, crece con artista y sé parte del ritmo que transforma días.</p>
-<a href="#instrumentos" class="btn">Explora Instrumentos</a>
+
+<div class="mensaje-principal">
+
+<p class="destacado">
+¿ESTRÉS, DEPRESIÓN O ANSIEDAD?
+</p>
+
+<p class="destacado">
+🥁 DILO CON LA SALSA Y LA PERCUSIÓN 🥁
+</p>
+
+<p>
+En La Escuela de la Salsa Rolos Band, ubicados en Ciudad Verde, no solo enseñamos a tocar; construimos bienestar.
+</p>
+
+<p>
+¿Sabías que tocar percusión reduce el cortisol (hormona del estrés) y libera endorfinas?
+</p>
+
+<div class="beneficios">
+
+<p>✅ Para niños: Mejora la atención y la disciplina.</p>
+
+<p>✅ Para adultos: El mejor escape después de un día pesado.</p>
+
+<p>✅ Para abuelos: Ejercicio vital para la memoria y la coordinación.</p>
+
+</div>
+
+<p class="destacado">
+No necesitas instrumento propio. Solo las ganas de conectar con tu ritmo.
+</p>
+
+</div>
+
+<div class="botones">
+
+<a href="#instrumentos" class="btn">
+Ver los instrumentos que puedes aprender
+</a>
+
+<a href="https://wa.me/573133231571?text=Quiero%20mi%20programar%20una%20clase%20de%20cortes%C3%ADa"
+class="btn btn-wsp">
+Info y Clase de Cortesía
+</a>
+
+</div>
+
 </header>
 
-<section id="academia">
-<h2>Academia</h2>
-<p>Clases presenciales y virtuales en un ambiente positivo para tu crecimiento musical y emocional.</p>
-</section>
-
 <section id="instrumentos">
-<h2>Instrumentos que enseñamos</h2>
+
+<h2>Estos son los instrumentos que puedes aprender con nosotros</h2>
+
 <div class="cards">
-<div class="card"><h3>Timbal</h3><img src="https://images.pexels.com/photos/87657/pexels-photo-87657.jpeg" alt="Timbal" width="100%"></div>
-<div class="card"><h3>Congas</h3><img src="https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg" alt="Congas" width="100%"></div>
-<div class="card"><h3>Bongó</h3><img src="https://images.pexels.com/photos/164983/pexels-photo-164983.jpeg" alt="Bongó" width="100%"></div>
-<div class="card"><h3>Campana</h3><img src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg" alt="Campana" width="100%"></div>
-<div class="card"><h3>Piano</h3><img src="https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg" alt="Piano" width="100%"></div>
-<div class="card"><h3>Canto</h3><img src="https://images.pexels.com/photos/164890/pexels-photo-164890.jpeg" alt="Canto" width="100%"></div>
-<div class="card"><h3>Arreglos Musicales</h3><img src="https://images.pexels.com/photos/164941/pexels-photo-164941.jpeg" alt="Arreglos" width="100%"></div>
+
+<div class="card">
+Timbal
+<img src="https://images.pexels.com/photos/87657/pexels-photo-87657.jpeg">
 </div>
+
+<div class="card">
+Congas
+<img src="https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg">
+</div>
+
+<div class="card">
+Bongó
+<img src="https://images.pexels.com/photos/164983/pexels-photo-164983.jpeg">
+</div>
+
+<div class="card">
+Campana
+<img src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg">
+</div>
+
+<div class="card">
+Piano
+<img src="https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg">
+</div>
+
+<div class="card">
+Canto
+<img src="https://images.pexels.com/photos/164890/pexels-photo-164890.jpeg">
+</div>
+
+<div class="card">
+Arreglos Musicales
+<img src="https://images.pexels.com/photos/164941/pexels-photo-164941.jpeg">
+</div>
+
+</div>
+
 </section>
 
 <section id="orquesta">
-<h2>Rolos Band — Orquesta</h2>
-<p>Respaldamos tu formación con música en vivo, presencia escénica real y energía profesional.</p>
+
+<h2>Rolos Band — Orquesta Profesional</h2>
+
+<p>
+Nuestros estudiantes tienen la oportunidad de vivir la experiencia real con músicos profesionales en vivo.
+</p>
+
 <iframe src="https://www.youtube.com/embed/7ybvRwyTvYY" allowfullscreen></iframe>
-<p>Álbumes grabados:</p>
-<ul>
-<li>Album 1 — “Salsa y Alma”</li>
-<li>Album 2 — “Ritmo en la Sangre”</li>
-<li>Album 3 — “Son Latino”</li>
-</ul>
+
+<p style="margin-top:20px;">
+Álbumes grabados:
+</p>
+
+<p>
+• Producción Discográfica 1<br>
+• Producción Discográfica 2<br>
+• Producción Discográfica 3
+</p>
+
 </section>
 
 <section id="estudio">
-<h2>ME Records Colombia — Estudio de Grabación</h2>
-<p>Producción, grabación, mezcla y masterización para artistas de diversos géneros: salsa, merengue, ranchera, vallenato, reguetón y más.</p>
-<p>Tenemos registros con clientes de:</p>
-<ul>
-<li>Música popular</li>
-<li>Salsa y tropical</li>
-<li>Reguetón y urbano</li>
-</ul>
-<p>Tus proyectos musicales aquí toman forma con calidad profesional.</p>
-</section>
 
-<section id="mao">
-<h2>Mao Escobar</h2>
-<p>Director artístico, productor musical y gestor cultural. Fusiona formación, creatividad y profesionalismo en cada proceso.</p>
+<h2>ME Records Colombia — Estudio de Grabación</h2>
+
+<p>
+Producción profesional en géneros como salsa, vallenato, merengue, reguetón, ranchera y música popular.
+</p>
+
+<p>
+Artistas emergentes y profesionales han grabado sus proyectos en nuestras instalaciones.
+</p>
+
 </section>
 
 <section id="contacto">
+
 <h2>Contacto</h2>
-<p>Alegra tus días, aprende y produce tu música con nosotros.</p>
-<p>📧 laescueladelasalsabyrb@gmail.com</p>
-<p>📧 larolosband@gmail.com</p>
-<p>📱 +57 313 3231571</p>
-<p>📍 Bogotá, Colombia</p>
+
+<p>
+Formarte con nosotros alegra tus días y transforma tu vida a través de la música.
+</p>
+
+<p>
+📧 laescueladelasalsabyrb@gmail.com
+</p>
+
+<p>
+📧 larolosband@gmail.com
+</p>
+
+<p>
+📱 +57 313 3231571
+</p>
+
+<p>
+📍 Sede Ciudad Verde, Soacha, Cundinamarca, Colombia
+</p>
+
 </section>
 
 <footer>
-<p>© 2026 La Escuela de la Salsa by RB — Ecosistema musical integrado</p>
+
+© 2026 La Escuela de la Salsa by RB — Todos los derechos reservados
+
 </footer>
 
 </body>
