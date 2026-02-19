@@ -9,99 +9,26 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#111;color:#fff;scroll-behavior:smooth;}
-header{
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1516455590571-18256e5bb9ff');
-background-size:cover;
-background-position:center;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-header h1{font-size:3rem;font-weight:800;color:#f5b041;}
-header p{margin-top:15px;font-size:1.2rem;max-width:700px;}
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:12px 30px;
-background:#f5b041;
-color:#000;
-text-decoration:none;
-font-weight:600;
-border-radius:30px;
-transition:0.3s;
-}
-.btn:hover{background:#fff;}
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#000;
-padding:15px;
-text-align:center;
-z-index:1000;
-}
-nav a{
-color:#fff;
-margin:0 15px;
-text-decoration:none;
-font-weight:500;
-}
+nav{position:fixed;top:0;width:100%;background:#000;padding:15px;z-index:1000;text-align:center;}
+nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:500;}
 nav a:hover{color:#f5b041;}
-
-section{
-padding:80px 20px;
-text-align:center;
-max-width:1000px;
-margin:auto;
+header{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg');
+background-size:cover;background-position:center;
+height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
 }
-section h2{
-font-size:2rem;
-margin-bottom:20px;
-color:#f5b041;
-}
-.cards{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-margin-top:30px;
-}
-.card{
-background:#1c1c1c;
-padding:25px;
-border-radius:15px;
-flex:1 1 280px;
-transition:0.3s;
-}
-.card:hover{
-transform:translateY(-5px);
-background:#222;
-}
-
-footer{
-background:#000;
-padding:40px 20px;
-text-align:center;
-font-size:0.9rem;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:#fff;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-text-decoration:none;
-}
+header h1{font-size:3rem;color:#f5b041;font-weight:800;}
+header p{font-size:1.2rem;max-width:800px;margin-top:15px;}
+.btn{margin-top:25px;padding:12px 30px;background:#f5b041;color:#000;text-decoration:none;font-weight:600;border-radius:30px;transition:0.3s;}
+.btn:hover{background:#fff;}
+section{padding:80px 20px;text-align:center;max-width:1000px;margin:auto;}
+section h2{font-size:2rem;margin-bottom:20px;color:#f5b041;}
+.cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
+.card{background:#1c1c1c;padding:25px;border-radius:15px;flex:1 1 280px;transition:0.3s;}
+.card:hover{transform:translateY(-5px);background:#222;}
+footer{background:#000;padding:40px 20px;text-align:center;font-size:0.9rem;}
+iframe{border-radius:15px;width:100%;height:315px;margin-top:20px;}
 </style>
 </head>
 
@@ -110,85 +37,78 @@ text-decoration:none;
 <nav>
 <a href="#inicio">Inicio</a>
 <a href="#academia">Academia</a>
+<a href="#instrumentos">Instrumentos</a>
 <a href="#orquesta">Orquesta</a>
 <a href="#estudio">Estudio</a>
-<a href="#mao">Director</a>
+<a href="#mao">Mao</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
 <header id="inicio">
-<h1>LA ESCUELA DE LA SALSA by RB</h1>
-<p>Formación profesional la cultura salsera, respaldada por músicos activos, producción real y experiencia en escenario.</p>
-<a href="#academia" class="btn">Inscríbete Ahora</a>
+<h1>LA ESCUELA DE LA SALSA BY RB</h1>
+<p>Donde la música y el movimiento cuidan tu mente, tu corazón y tu bienestar. Aprende con profesionales, crece con artista y sé parte del ritmo que transforma días.</p>
+<a href="#instrumentos" class="btn">Explora Instrumentos</a>
 </header>
 
 <section id="academia">
 <h2>Academia</h2>
-<p>Clases presenciales y virtuales. Formación integral con enfoque escénico y musical.</p>
+<p>Clases presenciales y virtuales en un ambiente positivo para tu crecimiento musical y emocional.</p>
+</section>
 
+<section id="instrumentos">
+<h2>Instrumentos que enseñamos</h2>
 <div class="cards">
-<div class="card">
-<h3>Modalidades</h3>
-<p>Presencial • Virtual • Talleres intensivos</p>
-</div>
-<div class="card">
-<h3>Niveles</h3>
-<p>Básico • Intermedio • Profesional</p>
-</div>
-<div class="card">
-<h3>Proyección</h3>
-<p>Presentaciones en vivo con orquesta y grabaciones profesionales.</p>
-</div>
+<div class="card"><h3>Timbal</h3><img src="https://images.pexels.com/photos/87657/pexels-photo-87657.jpeg" alt="Timbal" width="100%"></div>
+<div class="card"><h3>Congas</h3><img src="https://images.pexels.com/photos/164936/pexels-photo-164936.jpeg" alt="Congas" width="100%"></div>
+<div class="card"><h3>Bongó</h3><img src="https://images.pexels.com/photos/164983/pexels-photo-164983.jpeg" alt="Bongó" width="100%"></div>
+<div class="card"><h3>Campana</h3><img src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg" alt="Campana" width="100%"></div>
+<div class="card"><h3>Piano</h3><img src="https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg" alt="Piano" width="100%"></div>
+<div class="card"><h3>Canto</h3><img src="https://images.pexels.com/photos/164890/pexels-photo-164890.jpeg" alt="Canto" width="100%"></div>
+<div class="card"><h3>Arreglos Musicales</h3><img src="https://images.pexels.com/photos/164941/pexels-photo-164941.jpeg" alt="Arreglos" width="100%"></div>
 </div>
 </section>
 
 <section id="orquesta">
-<h2>Rolos Band</h2>
-<p>Orquesta profesional activa que respalda artísticamente la formación de nuestros estudiantes.</p>
-<div class="cards">
-<div class="card">
-<h3>Experiencia Escénica</h3>
-<p>Escenarios, festivales y conciertos en vivo.</p>
-</div>
-<div class="card">
-<h3>Música en Vivo</h3>
-<p>Los estudiantes viven la experiencia real con banda profesional.</p>
-</div>
-</div>
+<h2>Rolos Band — Orquesta</h2>
+<p>Respaldamos tu formación con música en vivo, presencia escénica real y energía profesional.</p>
+<iframe src="https://www.youtube.com/embed/7ybvRwyTvYY" allowfullscreen></iframe>
+<p>Álbumes grabados:</p>
+<ul>
+<li>Album 1 — “Salsa y Alma”</li>
+<li>Album 2 — “Ritmo en la Sangre”</li>
+<li>Album 3 — “Son Latino”</li>
+</ul>
 </section>
 
 <section id="estudio">
-<h2>ME Records Colombia</h2>
-<p>Estudio de grabación profesional para producción musical, arreglos, mezcla y masterización.</p>
-<div class="cards">
-<div class="card">
-<h3>Grabación</h3>
-<p>Equipamiento profesional y dirección artística.</p>
-</div>
-<div class="card">
-<h3>Producción</h3>
-<p>Arreglos, composición y desarrollo artístico.</p>
-</div>
-</div>
+<h2>ME Records Colombia — Estudio de Grabación</h2>
+<p>Producción, grabación, mezcla y masterización para artistas de diversos géneros: salsa, merengue, ranchera, vallenato, reguetón y más.</p>
+<p>Tenemos registros con clientes de:</p>
+<ul>
+<li>Música popular</li>
+<li>Salsa y tropical</li>
+<li>Reguetón y urbano</li>
+</ul>
+<p>Tus proyectos musicales aquí toman forma con calidad profesional.</p>
 </section>
 
 <section id="mao">
 <h2>Mao Escobar</h2>
-<p>Director artístico, productor musical y gestor cultural. Integra formación, espectáculo y producción en un ecosistema profesional.</p>
+<p>Director artístico, productor musical y gestor cultural. Fusiona formación, creatividad y profesionalismo en cada proceso.</p>
 </section>
 
 <section id="contacto">
 <h2>Contacto</h2>
-<p>¿Formarte con nosotros y produce tu música?</p>
-<p>📧 contacto@laescueladelasalsabyrb@gmail.com-larolosband@gmail.com</p>
+<p>Alegra tus días, aprende y produce tu música con nosotros.</p>
+<p>📧 laescueladelasalsabyrb@gmail.com</p>
+<p>📧 larolosband@gmail.com</p>
 <p>📱 +57 313 3231571</p>
+<p>📍 Bogotá, Colombia</p>
 </section>
 
 <footer>
-<p>© 2026 La Escuela de la Salsa by RB | Ecosistema artístico liderado por Mao Escobar</p>
+<p>© 2026 La Escuela de la Salsa by RB — Ecosistema musical integrado</p>
 </footer>
-
-<a href="https://wa.me/573133231571" class="whatsapp">💬</a>
 
 </body>
 </html>
