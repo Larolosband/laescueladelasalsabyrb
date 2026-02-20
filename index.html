@@ -1,333 +1,497 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Escuela de la Salsa by RB</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Escuela de la Salsa by RB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Iconos para redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<style>
+        body {
+            background: #0b0b0b;
+            color: white;
+            overflow-x: hidden;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        /* INTRO ANIMATION */
+        #intro {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            animation: fadeOut 2s forwards;
+            animation-delay: 4s;
+        }
 
-body{
-background:#111;
-color:#fff;
-scroll-behavior:smooth;
-}
+        #intro img {
+            width: 320px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px #d4af37);
+        }
 
-/* ANIMACIÓN DE ENTRADA */
+        #intro h1 {
+            color: #d4af37;
+            font-size: 3rem;
+            text-align: center;
+        }
 
-#intro{
-position:fixed;
-width:100%;
-height:100vh;
-background:#000;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:fadeOut 2.5s ease forwards;
-animation-delay:2.5s;
-}
+        #intro p {
+            color: #fff;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
 
-#intro h1{
-color:#f5b041;
-font-size:3rem;
-animation:zoomIn 2s ease;
-}
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
 
-@keyframes zoomIn{
-0%{transform:scale(0.5); opacity:0;}
-100%{transform:scale(1); opacity:1;}
-}
+        /* CANVAS PARTICLES */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-@keyframes fadeOut{
-to{opacity:0; visibility:hidden;}
-}
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-/* MENU */
+        nav a {
+            color: white;
+            margin: 10px 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#000;
-padding:15px;
-z-index:1000;
-text-align:center;
-}
+        nav a:hover { color: #d4af37; }
 
-nav a{
-color:#fff;
-margin:0 15px;
-text-decoration:none;
-font-weight:500;
-}
+        /* Estilo especial para el enlace de donaciones en el nav */
+        nav a.nav-donar {
+            color: #0070ba;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #0070ba;
+        }
+        nav a.nav-donar:hover {
+            background: #0070ba;
+            color: white;
+        }
 
-nav a:hover{
-color:#f5b041;
-}
+        /* HEADER */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.95)), url('https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
 
-/* HEADER */
+        .logo-header {
+            width: 100%;
+            max-width: 640px; 
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px #d4af37);
+            animation: goldPulseHeader 3s infinite ease-in-out;
+        }
 
-header{
-background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
-url('https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg');
-background-size:cover;
-background-position:center;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-}
+        @keyframes goldPulseHeader {
+            0% { filter: drop-shadow(0 0 8px #d4af37); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 25px #d4af37); transform: scale(1.02); }
+            100% { filter: drop-shadow(0 0 8px #d4af37); transform: scale(1); }
+        }
 
-header h1{
-font-size:3rem;
-color:#f5b041;
-margin-bottom:20px;
-animation:slideDown 1.5s ease;
-}
+        header h1 { color: #d4af37; font-size: 3rem; }
+        header p { max-width: 700px; margin-top: 20px; font-weight: 300; }
 
-@keyframes slideDown{
-0%{transform:translateY(-50px); opacity:0;}
-100%{transform:translateY(0); opacity:1;}
-}
+        /* BUTTONS */
+        .btn {
+            padding: 12px 25px;
+            background: #d4af37;
+            color: black;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 15px;
+            margin: 10px;
+            display: inline-block;
+            transition: 0.4s;
+            animation: goldPulse 2s infinite;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.botones{
-margin-top:30px;
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
-}
+        @keyframes goldPulse {
+            0% { box-shadow: 0 0 5px #d4af37; }
+            50% { box-shadow: 0 0 25px #d4af37; }
+            100% { box-shadow: 0 0 5px #d4af37; }
+        }
 
-.btn{
-padding:14px 28px;
-background:#f5b041;
-color:#000;
-text-decoration:none;
-font-weight:600;
-border-radius:30px;
-transition:0.3s;
-}
+        .btn:hover { background: white; transform: scale(1.1); }
 
-.btn:hover{
-background:#fff;
-}
+        /* SECTIONS */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
 
-.btn-wsp{
-background:#25d366;
-color:#fff;
-}
+        section h2 { color: #d4af37; margin-bottom: 40px; font-size: 32px; }
 
-.btn-wsp:hover{
-background:#1ebe5d;
-}
+        /* CARDS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
 
-/* SECCIONES */
+        .card {
+            background: black;
+            padding: 25px;
+            border-radius: 15px;
+            width: 260px;
+            transition: 0.4s;
+            border: 2px solid #d4af37;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-section{
-padding:100px 20px;
-text-align:center;
-max-width:1100px;
-margin:auto;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
+        .card:hover { transform: scale(1.07); box-shadow: 0 0 25px #d4af37; background: #0f0f0f; }
+        .card img { width: 170px; margin-bottom: 15px; }
 
-section.visible{
-opacity:1;
-transform:translateY(0);
-}
+        /* ORQUESTA ROLOS BAND */
+        .orquesta-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
 
-section h2{
-font-size:2rem;
-margin-bottom:30px;
-color:#f5b041;
-}
+        .logo-band-centered {
+            width: 100%;
+            max-width: 400px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            margin: 20px auto;
+        }
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-gap:25px;
-justify-content:center;
-}
+        /* DONACIONES FOOTER */
+        .donation-footer {
+            background: linear-gradient(145deg, #0f0f0f, #000);
+            border: 2px solid #0070ba;
+            border-radius: 20px;
+            padding: 50px 20px;
+            margin: 60px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 112, 186, 0.2);
+        }
 
-.card{
-background:#1c1c1c;
-padding:20px;
-border-radius:15px;
-flex:1 1 250px;
-transition:0.3s;
-}
+        .btn-paypal-large {
+            background: #0070ba;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 112, 186, 0.4);
+        }
 
-.card:hover{
-transform:translateY(-8px);
-background:#222;
-}
+        .btn-paypal-large:hover {
+            background: #005ea6;
+            transform: scale(1.05);
+            color: white;
+        }
 
-.card img{
-width:100%;
-max-height:220px;
-object-fit:contain;
-margin-top:15px;
-}
+        /* REDES SOCIALES */
+        .social-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .social-container a {
+            color: #d4af37;
+            font-size: 2.5rem;
+            transition: 0.3s;
+        }
+        .social-container a:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
 
-.album img{
-width:100%;
-border-radius:15px;
-margin-bottom:15px;
-}
+        /* PRODUCCIONES */
+        .producciones-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-footer{
-background:#000;
-padding:40px;
-text-align:center;
-}
+        .album {
+            background: #080808;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #1a1a1a;
+            transition: 0.4s;
+        }
 
-</style>
+        .album:hover { border-color: #d4af37; transform: translateY(-5px); }
+        .album img { width: 100%; border-radius: 10px; margin-bottom: 15px; max-width: 220px; }
+
+        /* ME RECORDS */
+        .logoEstudio {
+            width: 220px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px #d4af37);
+        }
+
+        footer {
+            background: black;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #d4af37;
+        }
+    </style>
 </head>
-
 <body>
 
-<div id="intro">
-<h1>LA ESCUELA DE LA SALSA BY RB</h1>
-<p style="color:white;">Dilo con la Salsa</p>
-</div>
+    <!-- INTRO -->
+    <div id="intro">
+        <img src="https://i.imgur.com/HD72uQl.png" alt="Logo RB">
+        <h1>La Escuela de la Salsa by RB</h1>
+        <p>Dilo con la Salsa</p>
+    </div>
 
-<nav>
-<a href="#instrumentos">Instrumentos</a>
-<a href="#orquesta">Rolos Band</a>
-<a href="#contacto">Contacto</a>
-</nav>
+    <!-- AUDIO PLAYER -->
+    <iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mauricio-escobar-arias/no-fue-facil&auto_play=true&hide_related=true">
+    </iframe>
 
-<header>
-<h1>Bienestar, Música y Salsa en Ciudad Verde</h1>
+    <canvas id="particles"></canvas>
 
-<div class="botones">
-<a href="#instrumentos" class="btn">Ver Instrumentos</a>
-<a href="https://wa.me/573133231571?text=Quiero%20mi%20programar%20una%20clase%20de%20cortes%C3%ADa" class="btn btn-wsp">
-Clase de Cortesía
-</a>
-</div>
-</header>
+    <nav>
+        <a href="#instrumentos">Formación</a>
+        <a href="#orquesta">Rolos Band</a>
+        <a href="#producciones">Producciones</a>
+        <a href="#estudio">Estudio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#donaciones" class="nav-donar"><i class="fa-brands fa-paypal"></i> Donaciones</a>
+    </nav>
 
-<section id="instrumentos">
-<h2>Instrumentos que puedes aprender</h2>
+    <header>
+        <img src="https://i.imgur.com/HD72uQl.png" class="logo-header" alt="Logo Principal">
+        <h1>¿Estrés, ansiedad o depresión?</h1>
+        <p>La música reduce el estrés, mejora la memoria y transforma vidas. Formarte con nosotros alegra tus días y produce tu música.</p>
+        <div style="margin-top:20px;">
+            <a href="#instrumentos" class="btn">Ver Instrumentos de Formación</a>
+            <a href="https://wa.me/573133231571?text=Quiero%20programar%20una%20clase%20de%20cortesía" class="btn">Clase de Cortesía</a>
+        </div>
+    </header>
 
-<div class="cards">
+    <!-- FORMACIÓN PROFESSIONAL -->
+    <section id="instrumentos">
+        <h2>Formación Profesional</h2>
+        <div class="cards">
+            <a href="https://www.youtube.com/watch?v=puJHGBjG0xw" target="_blank" class="card">
+                <img src="https://i.imgur.com/bftDHka.jpeg" alt="Conga">Conga
+            </a>
+            <a href="https://www.tiktok.com/@maoescobarysurolosband/video/7563023154470227221" target="_blank" class="card">
+                <img src="https://i.imgur.com/DZvISKt.png" alt="Timbal">Timbal
+            </a>
+            <a href="https://www.youtube.com/shorts/H2RkeO9qHWM" target="_blank" class="card">
+                <img src="https://i.imgur.com/gF5dsiC.png" alt="Campana">Campana
+            </a>
+            <a href="https://www.tiktok.com/@maoescobarysurolosband/video/7565291256583032084" target="_blank" class="card">
+                <img src="https://i.imgur.com/vQsN57C.png" alt="Bongó">Bongó
+            </a>
+            <a href="https://www.youtube.com/watch?v=KuDqT2vxD6g" target="_blank" class="card">
+                <img src="https://i.imgur.com/rnzW4Mf.png" alt="Canto">Canto
+            </a>
+            <a href="https://www.youtube.com/watch?v=cvMODE567wQ" target="_blank" class="card">
+                <img src="https://i.imgur.com/HSbkySh.png" alt="Piano">Piano
+            </a>
+            <a href="https://www.tiktok.com/@maoescobarysurolosband/video/7580435790476463380" target="_blank" class="card">
+                <img src="https://i.imgur.com/EAY0Gfu.png" alt="Arreglos">Arreglos
+            </a>
+        </div>
+    </section>
 
-<div class="card">Conga
-<img src="https://i.imgur.com/A1hudUr.png">
-</div>
+    <!-- ORQUESTA ROLOS BAND -->
+    <section id="orquesta">
+        <div class="orquesta-header">
+            <h2></h2>
+            <img src="https://i.imgur.com/p8PAnu2.png" class="logo-band-centered" alt="Rolos Band Logo">
+        </div>
+        
+        <div class="cards">
+            <a href="https://www.youtube.com/watch?v=nRf7_KwEHOw" target="_blank" class="card">
+                <img src="https://i.imgur.com/uv9tqSi.png" alt="Acompañamientos">Acompañamientos
+            </a>
+            <a href="https://www.youtube.com/watch?v=7ybvRwyTvYY" target="_blank" class="card">
+                <img src="https://i.imgur.com/vbNXgmM.png" alt="Reel Oficial">Reel Oficial
+            </a>
+        </div>
+    </section>
 
-<div class="card">Timbal
-<img src="https://i.imgur.com/DZvISKt.png">
-</div>
+    <!-- PRODUCCIONES -->
+    <section id="producciones">
+        <h2>Nuestras Producciones Discográficas</h2>
+        <div class="producciones-container">
+            <div class="album">
+                <img src="https://i.imgur.com/BVaVjy7.png" alt="No fue fácil">
+                <h3>No fue fácil (2017)</h3>
+                <a href="https://www.youtube.com/watch?v=Ue6y88VZGOA" target="_blank" class="btn">Escuchar</a>
+            </div>
+            <div class="album">
+                <img src="https://i.imgur.com/iafsW8o.png" alt="Solo Contigo">
+                <h3>Solo Contigo (2024)</h3>
+                <a href="https://www.youtube.com/watch?v=Tb-xK4QsSAk" target="_blank" class="btn">Escuchar</a>
+            </div>
+            <div class="album">
+                <img src="https://i.imgur.com/ehJousq.png" alt="Rolomántico">
+                <h3>Rolomántico en Big Band (2025)</h3>
+                <a href="https://www.youtube.com/watch?v=CR8ZbY8FQVM" target="_blank" class="btn">Escuchar</a>
+            </div>
+        </div>
+    </section>
 
-<div class="card">Campana
-<img src="https://i.imgur.com/gF5dsiC.png">
-</div>
+    <!-- ME RECORDS / ESTUDIO -->
+    <section id="estudio">
+        <img src="https://i.imgur.com/shrjmSL.png" class="logoEstudio" alt="Logo Estudio">
+        <h2>ME RECORDS COLOMBIA</h2>
+        <p>Producción profesional certificada. Realizamos grabaciones con equipos de alta gama y arreglos musicales para artistas de todos los niveles.</p>
+        <div style="margin-top:20px;">
+            <a href="https://wa.me/573133231571?text=Quiero%20información%20sobre%20grabación" class="btn">Producir mi música</a>
+            <a href="https://drive.google.com/drive/folders/1WkhYvpYiB3p91n4f63a_uN9ODGvZ-uOA" class="btn">Nuestros Clientes</a>
+        </div>
+    </section>
 
-<div class="card">Cantante
-<img src="https://i.imgur.com/rnzW4Mf.png">
-</div>
+    <!-- LLAMADA A LA ACCIÓN PAYPAL -->
+    <section id="donaciones">
+        <div class="donation-footer">
+            <h2 style="color: white; margin-bottom: 15px;">¿Te gustaría apoyar nuestro proyecto?</h2>
+            <p style="margin-bottom: 35px; color: #ccc;">Tu contribución nos ayuda a seguir transformando vidas a través de la salsa y a mantener nuestra producción musical independiente.</p>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=73GNR5PTPWE8A" target="_blank" class="btn-paypal-large">
+                <i class="fa-brands fa-paypal"></i> Donar con PayPal
+            </a>
+        </div>
+    </section>
 
-<div class="card">Bongocero
-<img src="https://i.imgur.com/vQsN57C.png">
-</div>
+    <!-- CONTACTO Y REDES -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>📱 WhatsApp: 313 3231571</p>
+        <p>📍 Sede: Ciudad Verde, Soacha</p>
+        <p>📧 Email: laescueladelasalsabyrb@gmail.com</p>
+        
+        <div class="social-container">
+            <<a href="https://www.youtube.com/@maoescobarysurolosbandoficial" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/maoescobarysurolosband/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@maoescobarysurolosband" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </section>
 
-<div class="card">Piano
-<img src="https://i.imgur.com/HSbkySh.png">
-</div>
+    <footer>
+        <p>&copy; 2026 La Escuela de la Salsa by RB - Todos los derechos reservados</p>
+    </footer>
 
-<div class="card">Arreglos Musicales
-<img src="https://i.imgur.com/EAY0Gfu.png">
-</div>
+    <script>
+        const canvas = document.getElementById("particles");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
 
-</div>
-</section>
+        for(let i=0; i<80; i++){
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2 + 1,
+                speed: Math.random() * 0.5 + 0.2
+            });
+        }
 
-<section id="orquesta">
-<h2>Rolos Band — Producciones Discográficas</h2>
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(212, 175, 55, 0.5)";
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                p.y += p.speed;
+                if(p.y > canvas.height) p.y = 0;
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
 
-<div class="cards">
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSfx(freq) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
 
-<div class="card album">
-<img src="https://i.imgur.com/BVaVjy7.png">
-<h3>2017 - No Fue Fácil</h3>
-<a href="https://www.youtube.com/watch?v=Ue6y88VZGOA&list=PL7YH1mbo4O_patibVK_9TZRgY2WTph8Ch" target="_blank" class="btn">
-Escuchar Álbum
-</a>
-</div>
+        document.querySelectorAll('a, .btn, .card, .album').forEach(item => {
+            item.addEventListener('mouseenter', () => playSfx(600));
+        });
 
-<div class="card album">
-<img src="https://i.imgur.com/7M61tai.png">
-<h3>2024 - Solo Contigo</h3>
-<a href="https://www.youtube.com/watch?v=Tb-xK4QsSAk&list=PL7YH1mbo4O_rzDG01sSVVA1D5YM2y2u8_" target="_blank" class="btn">
-Escuchar Álbum
-</a>
-</div>
-
-<div class="card album">
-<img src="https://i.imgur.com/iafsW8o.png">
-<h3>2025 - Rolomántico en Big Band</h3>
-<a href="https://www.youtube.com/watch?v=CR8ZbY6FQVM&list=PL7YH1mbo4O_ru5JkWuOk_LOQfkxvLDHXm" target="_blank" class="btn">
-Escuchar Álbum
-</a>
-</div>
-
-<div class="card album">
-<img src="https://i.imgur.com/9PS1jq2.png">
-<h3>Acompañamientos</h3>
-<a href="https://drive.google.com/file/d/14TV3JUHQ6ildBLrJe275VXv4hUgpZmbz/view?usp=sharing" target="_blank" class="btn">
-Ver Material
-</a>
-</div>
-
-</div>
-</section>
-
-<section id="contacto">
-<h2>Contacto</h2>
-<p>📱 313 3231571</p>
-<p>📍 Ciudad Verde, Soacha</p>
-<p>📧 laescueladelasalsabyrb@gmail.com</p>
-</section>
-
-<footer>
-© 2026 La Escuela de la Salsa by RB
-</footer>
-
-<script>
-
-/* Animación al hacer scroll */
-
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-sections.forEach(section => {
-const position = section.getBoundingClientRect().top;
-const screenPosition = window.innerHeight / 1.3;
-
-if(position < screenPosition){
-section.classList.add("visible");
-}
-});
-});
-
-</script>
-
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
